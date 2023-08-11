@@ -1,0 +1,40 @@
+{
+    "name": "ksverchkov/phpdfs",
+    "description": "A Distributed Filesystem Framework/Library for Php",
+    "keywords": ["framework", "library", "php", "phpdfs", "ksverchkov"],
+    "type": "library",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/ksverchkov/PHPDFS/issues",
+        "source": "https://github.com/ksverchkov/PHPDFS",
+        "wiki": "https://github.com/ksverchkov/PHPDFS/wiki"
+    },
+    "readme": "",
+    "time": "",
+    "authors": [
+        {
+            "name": "Kirill Sverchkov",
+            "email": "kasverchkov@outlook.com",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "alpha",
+    "require": {
+        "php": "7.3.0|8.*",
+        "ext-mbstring": "*",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-simplexml": "*",
+        "ext-iconv": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "PHPDFS\\": "src/PHPDFS"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PHPDFS\\Tests\\": "tests/"
+        }
+    }
+}
