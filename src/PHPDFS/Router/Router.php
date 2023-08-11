@@ -44,6 +44,22 @@ class Router implements RouterInterface
             $controllerString = $this->params["controller"];
             $controllerString = $this->transformUpperCamelCase($controllerString);
             $controllerString = $this->getNamespace($controllerString);
+
+            if (class_exists($controllerString)){
+                $controllerObject = new $controllerString();
+                $action = $this->params["action"];
+                $action = $this->transformCamelCase($action);
+
+                if (\is_callable([$controllerObject, $action])){
+                    $controllerObject->$action();
+                } else {
+                    throw new Exception();
+                }
+            }else{
+                throw new Exception();
+            }
+        }else{
+            throw new Exception();
         }
     }
 
