@@ -5,9 +5,9 @@
     "type": "library",
     "license": "MIT",
     "support": {
-        "issues": "https://github.com/ksverchkov/PHPDFS/issues",
-        "source": "https://github.com/ksverchkov/PHPDFS",
-        "wiki": "https://github.com/ksverchkov/PHPDFS/wiki"
+        "issues": "https://github.com/ksverchkov/PHPDFS-framework/issues",
+        "source": "https://github.com/ksverchkov/PHPDFS-framework",
+        "wiki": "https://github.com/ksverchkov/PHPDFS-framework/wiki"
     },
     "readme": "",
     "time": "",
