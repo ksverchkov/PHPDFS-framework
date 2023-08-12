@@ -25,7 +25,10 @@
         "ext-curl": "*",
         "ext-json": "*",
         "ext-simplexml": "*",
-        "ext-iconv": "*"
+        "ext-iconv": "*",
+        "gabordemooij/redbean": "*",
+        "vlucas/phpdotenv": "*",
+        "symfony/yaml": "*"
     },
     "autoload": {
         "psr-4": {

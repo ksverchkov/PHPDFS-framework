@@ -1,0 +1,28 @@
+routes:
+  - path: /file/get/{uuid}
+    action: FileController@get
+  - path: /file/info/{uuid}
+    action: FileController@show
+    auth: true
+    permission:
+      - view_file
+  - path: /file/search/{uuid}
+    action: FileController@search
+    auth: true
+    permission:
+      - view_file
+  - path: /file/upload
+    action: FileController@upload
+    auth: true
+    permission:
+      - upload_file
+  - path: /cron/synchronize
+    action: CronController@sync
+    auth: true
+    permission:
+      - cron_update
+  - path: /getToken
+    action: ApiController@createToken
+    auth: true
+    permission:
+      - create_auth
