@@ -4,7 +4,8 @@ namespace PHPDFS\Routing;
 
 use PHPDFS\Util\YamlParser;
 use PHPDFS\Util\TokenManager;
-use PHPDFS\Util\DatabaseManager;
+use PHPDFS\Database\DatabaseManager;
+use PHPDFS\Util\RequestUtil;
 
 class Router
 {
@@ -17,6 +18,7 @@ class Router
 
     public function route($url, $token)
     {
+        $url = explode('?', $url)[0];
         foreach ($this->routes as $route) {
             $pattern = $this->convertToRegex($route['path']);
             if (preg_match($pattern, $url, $matches)) {
@@ -33,7 +35,7 @@ class Router
                     return;
                 } else {
                     header('HTTP/1.0 403 Forbidden');
-                    echo '{"status":"failed", "message": "Unauthorized"}';
+                    RequestUtil::response("Unauthorized", [], $success=false);
                     return;
                 }
             }
@@ -65,11 +67,14 @@ class Router
         if (isset($route['auth']) && $route['auth'] === true) {
             $permissionsRequired = $route['permissions'] ?? [];
             $userPermissions = DatabaseManager::getUserPermissions($token);
-            
-            foreach ($permissionsRequired as $permission) {
-                if (!in_array($permission, $userPermissions)) {
-                    return false;
+            if (count($userPermissions) > 0){
+                foreach ($permissionsRequired as $permission) {
+                    if (!in_array($permission, $userPermissions)) {
+                        return false;
+                    }
                 }
+            }else{
+                return false;
             }
             
             return true;
