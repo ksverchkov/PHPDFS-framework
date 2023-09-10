@@ -1,0 +1,5 @@
+configurations:
+  replica:
+    - https://server.com
+  extend:
+    slave: https://server.com

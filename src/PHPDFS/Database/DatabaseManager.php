@@ -13,7 +13,15 @@ class DatabaseManager
         $dotenv->load();
         $dbConnection = $_ENV['DB_CONNECTION'];
         $dbName = $_ENV['DB_NAME'];
-        R::setup("{$dbConnection}:{$dbName}");
+        if (array_key_exists('DB_USER', $_ENV)){
+            $dbUser = $_ENV['DB_USER'];
+            $dbHost = $_ENV['DB_HOST'];
+            $dbPassword = $_ENV['DB_PASSWORD'];
+            R::setup("{$dbConnection}:host={$dbHost};dbname={$dbName}",
+        $dbUser, $dbPassword);
+        }else{
+            R::setup("{$dbConnection}:{$dbName}");
+        }
         self::createTables();
         self::addInitialPermissions();
         self::createRandomToken();

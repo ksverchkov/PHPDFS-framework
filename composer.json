@@ -20,7 +20,7 @@
     ],
     "minimum-stability": "alpha",
     "require": {
-        "php": "7.*|8.*",
+        "php": ">=7.0",
         "ext-mbstring": "*",
         "ext-curl": "*",
         "ext-json": "*",
@@ -28,7 +28,7 @@
         "ext-iconv": "*",
         "gabordemooij/redbean": "*",
         "vlucas/phpdotenv": "*",
-        "symfony/yaml": "*"
+        "symfony/yaml": "v5.0.6"
     },
     "autoload": {
         "psr-4": {
